@@ -55,15 +55,15 @@ async function doChores() {
 
   try {
     const walkDogResult = await walkDog();
-  console.log(walkDogResult);
-
-  const cleanKitchenResult = await cleanKitchen();
-  console.log(cleanKitchenResult);
-
-  const takeOutTrashResult = await takeOutTrash();
-  console.log(takeOutTrashResult);
-
-  console.log("Chores are accomplised! Well done.");
+    console.log(walkDogResult);
+  
+    const cleanKitchenResult = await cleanKitchen();
+    console.log(cleanKitchenResult);
+  
+    const takeOutTrashResult = await takeOutTrash();
+    console.log(takeOutTrashResult);
+  
+    console.log("Chores are accomplised! Well done.");
   } catch (error) {
     console.error(error);
   }
