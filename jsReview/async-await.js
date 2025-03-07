@@ -1,16 +1,19 @@
 // source: https://www.youtube.com/watch?v=9j1dZwFEJ-c
 
+// async = makes a function return a promise
+// await = makes an async function wait for a promise
+
 function walkDog() {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
 
-      const dogWalked = true;
+      const dogWalked = true; // you can try to edit this to false
 
       if (dogWalked) {
         resolve("You walk the dog. 🐕");
       }
       else {
-        reject("Yo did NOT walk the dog 😔");
+        reject("You did NOT walk the dog 😔");
       }
     }, 1500);
   });
@@ -48,7 +51,23 @@ function takeOutTrash() {
   })
 }
 
-walkDog().then(value => {console.log(value); return cleanKitchen()})
-         .then(value => {console.log(value); return takeOutTrash()})
-         .then(value => {console.log(value); return console.log("All chores are done!")})
-         .catch(error => console.error(error));
+async function doChores() {
+
+  try {
+    const walkDogResult = await walkDog();
+  console.log(walkDogResult);
+
+  const cleanKitchenResult = await cleanKitchen();
+  console.log(cleanKitchenResult);
+
+  const takeOutTrashResult = await takeOutTrash();
+  console.log(takeOutTrashResult);
+
+  console.log("Chores are accomplised! Well done.");
+  } catch (error) {
+    console.error(error);
+  }
+  
+}
+
+doChores()
